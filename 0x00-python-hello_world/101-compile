@@ -2,3 +2,5 @@
 
 python3 -m compileall "$PYFILE"
 mv __pycache__/main.cpython-34.pyc main.pyc
+rm -rf __pycache__
+export PYFILEc=main.pyc
