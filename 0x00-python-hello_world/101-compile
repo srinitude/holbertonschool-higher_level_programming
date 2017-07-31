@@ -1,6 +1,6 @@
 #!/bin/bash
 
 python3 -m compileall "$PYFILE"
-mv __pycache__/main.cpython-34.pyc main.pyc
-rm -rf __pycache__
-export PYFILEc=main.pyc
+mv __pycache__/*.pyc $PYFILE'c'
+rmdir __pycache__
+
