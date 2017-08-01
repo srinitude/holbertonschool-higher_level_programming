@@ -3,7 +3,8 @@
 
 def uppercase(str):
     strlen = len(str)
-    if strlen <= 0:
+    if strlen == 0:
+        print("{}".format(str))
         break
     for i, c in enumerate(str):
         if ord(c) >= ord('a') and ord(c) <= ord('z'):
