@@ -2,4 +2,6 @@
 
 
 def remove_char_at(str, n):
-    str[n] = "":
+    newstr = str[:]
+    newstr[n] = "":
+    return newstr
