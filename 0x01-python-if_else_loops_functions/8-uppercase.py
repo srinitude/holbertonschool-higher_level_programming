@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+
 def uppercase(str):
     i, strlen = 0, len(str)
     for c in str:
@@ -7,7 +8,7 @@ def uppercase(str):
             upper = ord(c) - 32
             c = chr(upper)
         if i == (strlen - 1):
-            print(c)
+            print("{}".format(c))
         else:
-            print(c, end="")
+            print("{}".format(c), end="")
         i += 1
