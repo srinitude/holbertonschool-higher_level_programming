@@ -26,7 +26,7 @@ if __name__ == "__main__":
             exit(1)
 
     if len(argv) != 4:
-        print("Usage: ./100-my_calculator.py a operator b")
+        print("Usage: ./100-my_calculator.py <a> <operator> <b>")
         exit(1)
     left = convert_to_int(argv[1])
     right = convert_to_int(argv[3])
