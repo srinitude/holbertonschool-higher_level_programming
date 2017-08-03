@@ -1,6 +1,4 @@
 #!/usr/bin/python3
-from sys import argv, exit
-from calculator_1 import add, sub, mul, div
 
 
 def find_handler(op):
@@ -16,6 +14,9 @@ def find_handler(op):
     exit(1)
 
 if __name__ == "__main__":
+    from sys import argv, exit
+    from calculator_1 import add, sub, mul, div
+
     def convert_to_int(str):
         try:
             i = int(str)
