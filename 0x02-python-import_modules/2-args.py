@@ -1,17 +1,19 @@
 #!/usr/bin/python3
-from sys import argv
 
-num = len(argv) - 1
-punc = ":"
-plural = "s"
+if __name__ == "main":
+    from sys import argv
 
-if num == 0:
-    punc = "."
-if num <= 1:
-    plural = ""
+    num = len(argv) - 1
+    punc = ":"
+    plural = "s"
 
-print("{:d} argument{:s}{:s}".format(num, plural, punc))
+    if num == 0:
+        punc = "."
+    if num <= 1:
+        plural = ""
 
-for i, arg in enumerate(argv):
-    if i != 0:
-        print("{:d}: {:s}".format(i, arg))
+    print("{:d} argument{:s}{:s}".format(num, plural, punc))
+
+    for i, arg in enumerate(argv):
+        if i != 0:
+            print("{:d}: {:s}".format(i, arg))
