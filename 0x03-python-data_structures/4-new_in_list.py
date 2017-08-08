@@ -10,9 +10,11 @@ def valid_index(my_list, index):
     return True
 
 
-def replace_in_list(my_list, idx, element):
-    if valid_index(my_list, idx):
-        del my_list[idx]
-        my_list.insert(idx, element)
-        return my_list
+def new_in_list(my_list, idx, element):
+    new_list = my_list.copy()
+    if valid_index(new_list, idx):
+        del new_list[idx]
+        new_list.insert(idx, element)
+        return new_list
+    del new_list
     return my_list
