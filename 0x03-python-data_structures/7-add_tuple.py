@@ -23,4 +23,6 @@ def add_tuple(tuple_a=(), tuple_b=()):
         if i < 2:
             first, second = tup
             sum_list.append(first + second)
-    return tuple(sum_list)
+    new_tup = tuple(sum_list)
+    del sum_list
+    return new_tup
