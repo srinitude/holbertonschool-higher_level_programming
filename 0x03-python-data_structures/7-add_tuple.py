@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+
 def tuple_check(tup):
     length = len(tup)
     if length == 0:
@@ -11,6 +12,7 @@ def tuple_check(tup):
         del tup
         return new_tup
     return tup
+
 
 def add_tuple(tuple_a=(), tuple_b=()):
     sum_list = []
