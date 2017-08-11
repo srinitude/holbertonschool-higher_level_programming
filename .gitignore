@@ -8,3 +8,5 @@ variable_load_5.py
 100-test_lists.py
 100-intermediate_testing.py
 libPyList.so
+libPython.so
+103-tests.py
