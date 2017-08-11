@@ -44,7 +44,7 @@ void print_hex_string(Py_ssize_t size, char *str)
 
 	if (size > 10)
 	{
-		printf("first 10 bytes: ");
+		printf("  first 10 bytes: ");
 		for (i = 0; i < 10; i++)
 		{
 			if (i != 9)
