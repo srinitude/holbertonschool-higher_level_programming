@@ -32,30 +32,16 @@ Py_ssize_t number_of_allocated_elements(PyObject *p)
 }
 
 /**
- * print_python_bytes - Prints info about a PyBytesObject
- * @p: The PyObject
+ * print_hex_string - Prints the hex value of the PyBytesObject's string
+ * @size: Size of the object
+ * @str: The PyBytesObject's string
  *
  * Return: None
  */
-void print_python_bytes(PyObject *p)
+void print_hex_string(Py_ssize_t size, char *str)
 {
-	Py_ssize_t size, i;
-	char *str = NULL;
+	Py_ssize_t i;
 
-	if (!p)
-		return;
-	printf("[.] bytes object info\n");
-	if (!PyBytes_Check(p))
-	{
-		printf("  [ERROR] Invalid Bytes Object\n");
-		return;
-	}
-
-	size = PyBytes_Size(p);
-	str = PyBytes_AsString(p);
-
-	printf("  size: %li\n", size);
-	printf("  trying string: %s\n", str);
 	if (size > 10)
 	{
 		printf("first 10 bytes: ");
@@ -85,6 +71,34 @@ void print_python_bytes(PyObject *p)
 		else
 			printf(" 00\n");
 	}
+}
+
+/**
+ * print_python_bytes - Prints info about a PyBytesObject
+ * @p: The PyObject
+ *
+ * Return: None
+ */
+void print_python_bytes(PyObject *p)
+{
+	Py_ssize_t size;
+	char *str = NULL;
+
+	if (!p)
+		return;
+	printf("[.] bytes object info\n");
+	if (!PyBytes_Check(p))
+	{
+		printf("  [ERROR] Invalid Bytes Object\n");
+		return;
+	}
+
+	size = PyBytes_Size(p);
+	str = PyBytes_AsString(p);
+
+	printf("  size: %li\n", size);
+	printf("  trying string: %s\n", str);
+	print_hex_string(size, str);
 }
 
 /**
