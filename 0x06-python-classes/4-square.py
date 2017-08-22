@@ -30,7 +30,37 @@ class Square:
         Args:
             self (Square): The square instance
 
-        Returns:
-            The area of the square
+        Returns: The area of the Square
         """
         return self.__size ** 2
+
+    @property
+    def size(self):
+        """
+        Getter for private __size attribute
+
+        Args:
+           self (Square): The square instance
+
+        Returns:
+           The size of the Square
+        """
+        return self.__size
+
+    @size.setter
+    def size(self, value):
+        """
+        The setter for private __size attribute
+
+        Args:
+            self (Square): The Square instance
+            value (int): The value to set private __size attribute to
+
+        Returns:
+            None
+        """
+        if type(value) != int:
+            raise TypeError("size must be an integer")
+        if value < 0:
+            raise ValueError("size must be >= 0")
+        self.__size = value
