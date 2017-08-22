@@ -8,8 +8,8 @@ class Square:
     """A Square is a shape that has 4 sides of equal length
 
     Attributes:
-        __size (int): The length of each edge of a Square
-        __position (tuple): The coordinates of a Square in 2D space
+        size (int): The length of each edge of a Square
+        position (tuple): The coordinates of a Square in 2D space
     """
     def __init__(self, size=0, position=(0, 0)):
         """The initialization of a Square
@@ -36,7 +36,8 @@ class Square:
         Args:
             self (Square): The square instance
 
-        Returns: The area of the Square
+        Returns:
+            The area of the Square
         """
         return self.__size ** 2
 

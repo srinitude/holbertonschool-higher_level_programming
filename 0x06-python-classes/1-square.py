@@ -8,7 +8,7 @@ class Square:
     """A Square is a shape that has 4 sides of equal length
 
     Attributes:
-        __size (int): The length of each edge of a Square
+        size (int): The length of each edge of a Square
     """
     def __init__(self, size):
         """The initialization of a Square
