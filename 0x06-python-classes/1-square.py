@@ -3,6 +3,7 @@
 This module contains documentation for a Square
 """
 
+
 class Square:
     """A Square is a shape that has 4 sides of equal length
 
