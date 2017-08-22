@@ -9,6 +9,7 @@ class Square:
 
     Attributes:
         __size (int): The length of each edge of a Square
+        __position (tuple): The coordinates of a Square in 2D space
     """
     def __init__(self, size=0, position=(0, 0)):
         """The initialization of a Square
