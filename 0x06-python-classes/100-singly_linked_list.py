@@ -3,6 +3,7 @@
 This module demonstrates the implementation of a Singly Linked List
 """
 
+
 class Node:
     """
     Implementation of a Node within a SinglyLinkedList
@@ -21,7 +22,7 @@ class Node:
         """
         if type(data) != int:
             raise TypeError("data must be an integer")
-        if (type(next_node) != Node) and (next_node != None):
+        if (type(next_node) != Node) and (next_node is not None):
             raise TypeError("next_node must be a Node object")
         self.__data = data
         self.__next_node = next_node
@@ -80,9 +81,10 @@ class Node:
         Returns:
             None
         """
-        if (type(value) != Node) and (value != None):
+        if (type(value) != Node) and (value is not None):
             raise TypeError("next_node must be a Node object")
         self.__next_node = value
+
 
 class SinglyLinkedList:
     """
@@ -139,10 +141,10 @@ class SinglyLinkedList:
         new_node = Node(value)
         head = self.__head
 
-        if head == None:
+        if head is None:
             self.__head = new_node
             return
-        if head.next_node == None:
+        if head.next_node is None:
             if new_node.data <= head.data:
                 new_node.next_node = head
                 self.__head = new_node
@@ -160,7 +162,7 @@ class SinglyLinkedList:
                 previous.next_node = new_node
                 new_node.next_node = current
                 return
-            if current.next_node == None:
+            if current.next_node is None:
                 if new_node.data >= current.data:
                     current.next_node = new_node
                     return
