@@ -109,7 +109,8 @@ class SinglyLinkedList:
         current = self.__head
         while current:
             list_rep.append(str(current.data))
-            list_rep.append("\n")
+            if current.next_node:
+                list_rep.append("\n")
             current = current.next_node
         return "".join(list_rep)
 
@@ -123,7 +124,8 @@ class SinglyLinkedList:
         current = self.__head
         while current:
             list_rep.append(str(current.data))
-            list_rep.append("\n")
+            if current.next_node:
+                list_rep.append("\n")
             current = current.next_node
         return "".join(list_rep)
 
