@@ -23,6 +23,10 @@ class Square:
             raise TypeError("size must be an integer")
         if size < 0:
             raise ValueError("size must be >= 0")
+        if type(position) != tuple:
+            raise TypeError("position must be a tuple of 2 positive integers")
+        if len(position) != 2:
+            raise TypeError("position must be a tuple of 2 positive integers")
         x, y = position
         if (type(x) != int) or (type(y) != int) or (x < 0) or (y < 0):
             raise TypeError("position must be a tuple of 2 positive integers")
@@ -97,6 +101,10 @@ class Square:
         Returns:
             None
         """
+        if type(value) != tuple:
+            raise TypeError("position must be a tuple of 2 positive integers")
+        if len(value) != 2:
+            raise TypeError("position must be a tuple of 2 positive integers")
         x, y = value
         if (type(x) != int) or (type(y) != int) or (x < 0) or (y < 0):
             raise TypeError("position must be a tuple of 2 positive integers")
