@@ -22,6 +22,49 @@ class Square:
         self.size = size
         self.position = position
 
+    def __str__(self):
+        """String representation of Square instance
+
+        Args:
+            self (Square): The Square instance
+        """
+        if self.size == 0:
+            return ""
+        output = ""
+        x, y = self.position
+        for i in range(y):
+            output += "\n"
+        for i in range(self.size):
+            spaces = " " * x
+            output += spaces
+            content = "#" * self.size
+            output += content
+            if i < self.size - 1:
+                output += "\n"
+        return output
+
+
+    def __repr__(self):
+        """String representation of Square instance
+
+        Args:
+            self (Square): The Square instance
+        """
+        if self.size == 0:
+            return ""
+        output = ""
+        x, y = self.position
+        for i in range(y):
+            output += "\n"
+        for i in range(self.size):
+            spaces = " " * x
+            output += spaces
+            content = "#" * self.size
+            output += content
+            if i < self.size - 1:
+                output += "\n"
+        return output
+
     def area(self):
         """
         Computes the area of the Square instance
