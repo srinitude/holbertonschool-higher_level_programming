@@ -130,29 +130,43 @@ class SinglyLinkedList:
         return "".join(list_rep)
 
     def sorted_insert(self, value):
-        head = self.__head
+        """Inserts a new Node into the correct sorted position in the list
+
+        Args:
+            self (SinglyLinkedList): The SinglyLinkedList instance
+            value (int): The value to instantiate the new node with
+        """
         new_node = Node(value)
+        head = self.__head
 
         if head == None:
             self.__head = new_node
             return
-        current = head.next_node
-        if current == None:
+        if head.next_node == None:
             if new_node.data <= head.data:
                 new_node.next_node = head
                 self.__head = new_node
             else:
                 head.next_node = new_node
             return
-        current = self.__head
-        while current:
+        previous = head
+        current = head.next_node
+        while True:
+            if new_node.data <= head.data:
+                new_node.next_node = head
+                self.__head = new_node
+                return
+            if previous.data <= new_node.data <= current.data:
+                previous.next_node = new_node
+                new_node.next_node = current
+                return
+            if current.next_node == None:
+                if new_node.data >= current.data:
+                    current.next_node = new_node
+                    return
+                else:
+                    previous.next_node = new_node
+                    new_node.next_node = current
+                    return
             previous = current
             current = current.next_node
-            if current == None:
-                previous.next_node = new_node
-                return
-            if current.data <= new_node.data:
-                continue
-            previous.next_node = new_node
-            new_node.next_node = current
-            return
