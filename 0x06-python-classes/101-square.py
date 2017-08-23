@@ -43,7 +43,6 @@ class Square:
                 output += "\n"
         return output
 
-
     def __repr__(self):
         """String representation of Square instance
 
