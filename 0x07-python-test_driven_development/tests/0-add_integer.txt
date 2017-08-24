@@ -1,0 +1,144 @@
+The ``add_integer(a, b)`` module
+======================
+
+Using ``addition with 2 integers``
+-------------------
+
+This is an example text file in reStructuredText format.  First import
+``add_integer`` from the ``0-add_integer`` module:
+
+    >>> add_integer = __import__('0-add_integer').add_integer
+
+"""Working scenarios"""
+    >>> print(add_integer(0, 0))
+    0
+
+    >>> print(add_integer(-0, -0))
+    0
+
+    >>> print(add_integer(1, 7))
+    8
+
+    >>> print(add_integer(3.14159, 2.9))
+    5
+
+    >>> print(add_integer(1.51, 7))
+    8
+
+    >>> print(add_integer(1, 7.939))
+    8
+
+    >>> print(add_integer(7, (9)))
+    16
+
+    >>> print(add_integer((7), 9))
+    16
+
+    >>> print(add_integer((1), (2)))
+    3
+
+"""Test: Check wrong types"""
+
+    >>> print(add_integer(8, 'a'))
+    Traceback (most recent call last):
+        ...
+    TypeError: b must be an integer
+
+    >>> print(add_integer('a', 8))
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+    >>> print(add_integer('a', 'z'))
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+    >>> print(add_integer({}, 7))
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+    >>> print(add_integer(7, {}))
+    Traceback (most recent call last):
+        ...
+    TypeError: b must be an integer
+
+    >>> print(add_integer({}, {}))
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+    >>> print(add_integer((9,), (1, 2, 3)))
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+    >>> print(add_integer(-3, {'b':"world"}))
+    Traceback (most recent call last):
+        ...
+    TypeError: b must be an integer
+
+    >>> print(add_integer({'a':"hello"}, -4))
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+    >>> print(add_integer({'a':"hello"}, {'b':"world"}))
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+    >>> print(add_integer("", ""))
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+    >>> print(add_integer(2, ""))
+    Traceback (most recent call last):
+        ...
+    TypeError: b must be an integer
+
+    >>> print(add_integer(("hey"), (2)))
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+"""Test: Check wrong number of arguments"""
+
+    >>> print(add_integer(-1, -2, -3))
+    Traceback (most recent call last):
+        ...
+    TypeError: add_integer() takes 2 positional arguments but 3 were given
+
+    >>> print(add_integer(-1.5, -2.5, -3.5))
+    Traceback (most recent call last):
+        ...
+    TypeError: add_integer() takes 2 positional arguments but 3 were given
+
+"""Test: Check wrong number of arguments and wrong type"""
+
+    >>> print(add_integer(-1, =3, 5.75))
+    Traceback (most recent call last):
+        ...
+    SyntaxError: invalid syntax
+
+    >>> print(add_integer('a', 5, 5.75))
+    Traceback (most recent call last):
+        ...
+    TypeError: add_integer() takes 2 positional arguments but 3 were given
+
+    >>> print(add_integer("", ))
+    Traceback (most recent call last):
+        ...
+    TypeError: add_integer() missing 1 required positional argument: 'b'
+
+    >>> print(add_integer("", "", ""))
+    Traceback (most recent call last):
+        ...
+    TypeError: add_integer() takes 2 positional arguments but 3 were given
+
+    >>> print(add_integer(2, "", -4.))
+    Traceback (most recent call last):
+        ...
+    TypeError: add_integer() takes 2 positional arguments but 3 were given
