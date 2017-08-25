@@ -1,5 +1,8 @@
 #!/usr/bin/python3
+"""Print square module"""
+
 def print_square(size):
+    """Print square function"""
     if type(size) is float and size < 0:
         raise TypeError("size must be an integer")
     if type(size) is not int:

@@ -1,7 +1,8 @@
 #!/usr/bin/python3
-
+"""Matrix Divided Module"""
 
 def check_for_ints_and_floats(matrix):
+    """Bad input"""
     bad_input = "matrix must be a matrix (list of lists) of integers/floats"
     flat_list = [i for sublist in matrix for i in sublist]
     for i in flat_list:
@@ -10,6 +11,7 @@ def check_for_ints_and_floats(matrix):
 
 
 def make_sure_lists_are_same_length(matrix):
+    """Same length"""
     needed_length = len(matrix[0])
     for i, sublist in enumerate(matrix):
         if i == 0:
@@ -20,16 +22,19 @@ def make_sure_lists_are_same_length(matrix):
 
 
 def check_for_div_type(div):
+    """Bad div type"""
     if type(div) is not int and type(div) is not float:
         raise TypeError("div must be a number")
 
 
 def check_for_zero_division(div):
+    """Zero division"""
     if div == 0:
         raise ZeroDivisionError("division by zero")
 
 
 def number_of_lists(matrix):
+    """Number of lists"""
     count = 0
     for sublist in matrix:
         count += 1
@@ -37,6 +42,7 @@ def number_of_lists(matrix):
 
 
 def matrix_divided(matrix, div):
+    """Matrix divided"""
     check_for_ints_and_floats(matrix)
     count = number_of_lists(matrix)
     if count == 0:
