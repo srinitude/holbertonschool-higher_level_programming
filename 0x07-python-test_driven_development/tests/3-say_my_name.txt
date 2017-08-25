@@ -1,0 +1,495 @@
+The ``3-say_my_name(first_name, last_name)`` module
+===================================================
+
+Using ``Print My name is first_name last_name``
+
+-----------------------------------------------
+
+To run tests, first import ``say_my_name`` from the ``3-say_my_name`` module:
+
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+
+"""Test A: Working scenarios"""
+    >>> say_my_name("Jane123!", "Smith")
+    My name is Jane123! Smith
+
+    >>> say_my_name("", "Mouse")
+    My name is  Mouse
+
+    >>> say_my_name("Mickey", "")
+    My name is Mickey 
+
+"""Test B: Check wrong number of arguments (zero arg)"""
+    >>> say_my_name()
+    Traceback (most recent call last):
+        ...
+    TypeError: say_my_name() missing 1 required positional argument: 'first_name'
+
+"""Test C: Check wrong number of arguments (one arg)"""
+    >>> say_my_name("")
+    My name is  
+
+    >>> say_my_name(None)
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
+
+    >>> say_my_name("Bubbles")
+    My name is Bubbles 
+
+    >>> say_my_name(,“Bubbles”)
+    Traceback (most recent call last):
+        ...
+    SyntaxError: invalid syntax
+
+    >>> say_my_name(‘\n’)
+    Traceback (most recent call last):
+        ...
+    SyntaxError: invalid character in identifier
+
+    >>> say_my_name(,‘\n’)
+    Traceback (most recent call last):
+        ...
+    SyntaxError: invalid syntax
+
+"""Test D: Check wrong number of arguments (three arg), correct type"""
+    >>> say_my_name("Game", "of", "Thrones")
+    Traceback (most recent call last):
+        ...
+    TypeError: say_my_name() takes from 1 to 2 positional arguments but 3 were given
+
+    >>> say_my_name("", "of", "Thrones")
+    Traceback (most recent call last):
+        ...
+    TypeError: say_my_name() takes from 1 to 2 positional arguments but 3 were given
+
+    >>> say_my_name("Game", "", "Thrones")
+    Traceback (most recent call last):
+        ...
+    TypeError: say_my_name() takes from 1 to 2 positional arguments but 3 were given
+
+    >>> say_my_name("Game", "of", "")
+    Traceback (most recent call last):
+        ...
+    TypeError: say_my_name() takes from 1 to 2 positional arguments but 3 were given
+
+"""Test E: Check wrong types, (2 arg)"""
+"""Test E1: Check wrong types, (2 arg, bad LEFT side)"""
+"""Test E1_None"""
+    >>> say_my_name(None, "Mouse")
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
+
+"""Test E1_Int"""
+    >>> say_my_name(35, "Mouse")
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
+
+"""Test E1_Float"""
+    >>> say_my_name(3.5, "Mouse")
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
+
+"""Test E1_Tuple"""
+    >>> say_my_name((), "Mouse")
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
+
+    >>> say_my_name((None), "Mouse")
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
+
+    >>> say_my_name((3), "Mouse")
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
+
+    >>> say_my_name((3,), "Mouse")
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
+
+    >>> say_my_name((,3), "Mouse")
+    Traceback (most recent call last):
+        ...
+    SyntaxError: invalid syntax
+
+    >>> say_my_name((3, 55), "Mouse")
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
+
+"""Test E1_List"""
+    >>> say_my_name([], "Mouse")
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
+
+    >>> say_my_name([None], "Mouse")
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
+
+    >>> say_my_name([None,], "Mouse")
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
+
+    >>> say_my_name([,None], "Mouse")
+    Traceback (most recent call last):
+        ...
+    SyntaxError: invalid syntax
+
+    >>> say_my_name([None, None], "Mouse")
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
+
+    >>> say_my_name([98], "Mouse")
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
+
+    >>> say_my_name([98, ,], "Mouse")
+    Traceback (most recent call last):
+        ...
+    SyntaxError: invalid syntax
+
+    >>> say_my_name([, 101], "Mouse")
+    Traceback (most recent call last):
+        ...
+    SyntaxError: invalid syntax
+
+    >>> say_my_name([98, 101], "Mouse")
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
+
+"""Test E1_Set"""
+    >>> say_my_name({}, "Mouse")
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
+
+    >>> say_my_name({None}, "Mouse")
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
+
+    >>> say_my_name({None,}, "Mouse")
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
+
+    >>> say_my_name({,None}, "Mouse")
+    Traceback (most recent call last):
+        ...
+    SyntaxError: invalid syntax
+
+    >>> say_my_name({None, None}, "Mouse")
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
+
+    >>> say_my_name({98}, "Mouse")
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
+
+    >>> say_my_name({98, ,}, "Mouse")
+    Traceback (most recent call last):
+        ...
+    SyntaxError: invalid syntax
+
+    >>> say_my_name({, 101}, "Mouse")
+    Traceback (most recent call last):
+        ...
+    SyntaxError: invalid syntax
+
+    >>> say_my_name({98, 101}, "Mouse")
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
+
+"""Test E1_Dict"""
+    >>> say_my_name({}, "Mouse")
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
+
+    >>> say_my_name({‘None’: ’None’}, "Mouse")
+    Traceback (most recent call last):
+        ...
+    SyntaxError: invalid character in identifier
+
+    >>> say_my_name({‘myKey’: ‘myVal’}, "Mouse")
+    Traceback (most recent call last):
+        ...
+    SyntaxError: invalid character in identifier
+
+    >>> say_my_name({None : None}, "Mouse")
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
+
+    >>> say_my_name({‘myKey’: 8,}, "Mouse")
+    Traceback (most recent call last):
+        ...
+    SyntaxError: invalid character in identifier
+
+    >>> say_my_name({‘myKey’: ‘z’, ,}, "Mouse")
+    Traceback (most recent call last):
+        ...
+    SyntaxError: invalid character in identifier
+
+    >>> say_my_name({“qq”, 101}, "Mouse")
+    Traceback (most recent call last):
+        ...
+    SyntaxError: invalid character in identifier
+
+"""Test E2: Check wrong types, (2 arg, bad RIGHT side)"""
+"""Test E2_None"""
+    >>> say_my_name("Mouse", None)
+    Traceback (most recent call last):
+        ...
+    TypeError: last_name must be a string
+
+"""Test E2_Int"""
+    >>> say_my_name("Mouse", 35)
+    Traceback (most recent call last):
+        ...
+    TypeError: last_name must be a string
+
+"""Test E2_Float"""
+    >>> say_my_name("Mouse", 3.5)
+    Traceback (most recent call last):
+        ...
+    TypeError: last_name must be a string
+
+"""Test E2_Tuple"""
+    >>> say_my_name("Mouse", ())
+    Traceback (most recent call last):
+        ...
+    TypeError: last_name must be a string
+
+    >>> say_my_name("Mouse", (None))
+    Traceback (most recent call last):
+        ...
+    TypeError: last_name must be a string
+
+    >>> say_my_name("Mouse", (3))
+    Traceback (most recent call last):
+        ...
+    TypeError: last_name must be a string
+
+    >>> say_my_name("Mouse", (3,))
+    Traceback (most recent call last):
+        ...
+    TypeError: last_name must be a string
+
+    >>> say_my_name("Mouse", (,3))
+    Traceback (most recent call last):
+        ...
+    SyntaxError: invalid syntax
+
+    >>> say_my_name("Mouse", (3, 55))
+    Traceback (most recent call last):
+        ...
+    TypeError: last_name must be a string
+
+"""Test E2_List"""
+    >>> say_my_name("Mouse", [])
+    Traceback (most recent call last):
+        ...
+    TypeError: last_name must be a string
+
+    >>> say_my_name("Mouse", [None])
+    Traceback (most recent call last):
+        ...
+    TypeError: last_name must be a string
+
+    >>> say_my_name("Mouse", [None,])
+    Traceback (most recent call last):
+        ...
+    TypeError: last_name must be a string
+
+    >>> say_my_name("Mouse", [,None])
+    Traceback (most recent call last):
+        ...
+    SyntaxError: invalid syntax
+
+    >>> say_my_name("Mouse", [None, None])
+    Traceback (most recent call last):
+        ...
+    TypeError: last_name must be a string
+
+    >>> say_my_name([98], "Mouse")
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
+
+    >>> say_my_name("Mouse", [98, ,])
+    Traceback (most recent call last):
+        ...
+    SyntaxError: invalid syntax
+
+    >>> say_my_name("Mouse", [, 101])
+    Traceback (most recent call last):
+        ...
+    SyntaxError: invalid syntax
+
+    >>> say_my_name("Mouse", [98, 101])
+    Traceback (most recent call last):
+        ...
+    TypeError: last_name must be a string
+
+"""Test E2_Set"""
+    >>> say_my_name("Mouse", {})
+    Traceback (most recent call last):
+        ...
+    TypeError: last_name must be a string
+
+    >>> say_my_name("Mouse", {None})
+    Traceback (most recent call last):
+        ...
+    TypeError: last_name must be a string
+
+    >>> say_my_name("Mouse", {None,})
+    Traceback (most recent call last):
+        ...
+    TypeError: last_name must be a string
+
+    >>> say_my_name("Mouse", {,None})
+    Traceback (most recent call last):
+        ...
+    SyntaxError: invalid syntax
+
+    >>> say_my_name("Mouse", {None, None})
+    Traceback (most recent call last):
+        ...
+    TypeError: last_name must be a string
+
+    >>> say_my_name("Mouse", {98})
+    Traceback (most recent call last):
+        ...
+    TypeError: last_name must be a string
+
+    >>> say_my_name("Mouse", {98, ,})
+    Traceback (most recent call last):
+        ...
+    SyntaxError: invalid syntax
+
+    >>> say_my_name("Mouse", {, 101})
+    Traceback (most recent call last):
+        ...
+    SyntaxError: invalid syntax
+
+    >>> say_my_name("Mouse", {98, 101})
+    Traceback (most recent call last):
+        ...
+    TypeError: last_name must be a string
+
+"""Test E2_Dict"""
+    >>> say_my_name("Mouse", {})
+    Traceback (most recent call last):
+        ...
+    TypeError: last_name must be a string
+
+    >>> say_my_name("Mouse", {‘None’: ’None’})
+    Traceback (most recent call last):
+        ...
+    SyntaxError: invalid character in identifier
+
+    >>> say_my_name("Mouse", {‘myKey’: ‘myVal’})
+    Traceback (most recent call last):
+        ...
+    SyntaxError: invalid character in identifier
+
+    >>> say_my_name("Mouse", {None : None})
+    Traceback (most recent call last):
+        ...
+    TypeError: last_name must be a string
+
+    >>> say_my_name("Mouse", {‘myKey’: 8,})
+    Traceback (most recent call last):
+        ...
+    SyntaxError: invalid character in identifier
+
+    >>> say_my_name("Mouse", {‘myKey’: ‘z’, ,})
+    Traceback (most recent call last):
+        ...
+    SyntaxError: invalid character in identifier
+
+    >>> say_my_name("Mouse", {“qq”, 101})
+    Traceback (most recent call last):
+        ...
+    SyntaxError: invalid character in identifier
+
+"""Test F: Check wrong number of arguments and wrong type"""
+    >>> say_my_name("Song", "of", "Ice")
+    Traceback (most recent call last):
+        ...
+    TypeError: say_my_name() takes from 1 to 2 positional arguments but 3 were given
+
+"""Test G: Part of original test case from 3-main.py"""
+    >>> say_my_name("John", "Smith")
+    My name is John Smith
+
+    >>> say_my_name("Walter", "White")
+    My name is Walter White
+
+    >>> say_my_name("Bob")
+    My name is Bob 
+
+    >>> say_my_name("Bob", "")
+    My name is Bob 
+
+    >>> say_my_name("Bob", 12)
+    Traceback (most recent call last):
+        ...
+    TypeError: last_name must be a string
+
+"""Checking for passing None as first name:"""
+    >>> say_my_name(None, "Hello")
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
+
+"""Checking for passing None as last name:"""
+    >>> say_my_name("Hello", None)
+    Traceback (most recent call last):
+        ...
+    TypeError: last_name must be a string
+
+"""Checking for wrong type as first name:"""
+    >>> say_my_name(1, "Hello")
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
+
+"""Checking for wrong type as last name:"""
+    >>> say_my_name("Hello", [4])
+    Traceback (most recent call last):
+        ...
+    TypeError: last_name must be a string
+
+"""Checking for normal use:"""
+    >>> say_my_name("Hello", "World")
+    My name is Hello World
+    >>> say_my_name("You know nothing", "John Snow")
+    My name is You know nothing John Snow
+
+""""Checking for 1 arg:""""
+    >>> say_my_name("Hello")
+    My name is Hello 
+
+"""Checking for more than 2 args:"""
+    >>> say_my_name("Hello", "World", "hi")
+    Traceback (most recent call last):
+        ...
+    TypeError: say_my_name() takes from 1 to 2 positional arguments but 3 were given
