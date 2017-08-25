@@ -41,6 +41,21 @@ class TestMaxInteger(unittest.TestCase):
         big_numbers = [biggest, smallest]
         self.assertEqual(max_integer(big_numbers), biggest)
 
+    def test_pos_infinity(self):
+        pos_inf = [1, 2, float('inf'), 9]
+        self.assertEqual(max_integer(pos_inf), float('inf'))
+
+    def test_neg_infinity(self):
+        neg_inf = [1, 2, -float('inf'), 9]
+        self.assertEqual(max_integer(neg_inf), 9)
+
+    def test_custom_int_subclass(self):
+        class ChildInt(int):
+            pass
+        big_child = ChildInt(456563723456365843)
+        numbers = [1, 2, 3, big_child]
+        self.assertEqual(max_integer(numbers), big_child)
+
     """Catching exceptions"""
     def test_passing_none(self):
         with self.assertRaises(TypeError):
