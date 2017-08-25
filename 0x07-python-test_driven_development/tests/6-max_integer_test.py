@@ -6,6 +6,15 @@ max_integer = __import__('6-max_integer').max_integer
 
 
 class TestMaxInteger(unittest.TestCase):
+    """Presence of docstrings"""
+    def test_presence_of_module_docstring(self):
+        module_doc = __import__('6-max_integer').__doc__
+        self.assertTrue(len(module_doc) > 1)
+
+    def test_presence_of_func_docstring(self):
+        function_doc = max_integer.__doc__
+        self.assertTrue(len(function_doc) > 1)
+
     """Working results"""
     def test_empty_list(self):
         empty_list = []
@@ -26,6 +35,12 @@ class TestMaxInteger(unittest.TestCase):
         list_with_floats = [23.2354, 635.34, 234658, 99, -102346.052]
         self.assertEqual(max_integer(list_with_floats), 234658)
 
+    def test_big_numbers(self):
+        biggest = 99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
+        smallest = -999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
+        big_numbers = [biggest, smallest]
+        self.assertEqual(max_integer(big_numbers), biggest)
+
     """Catching exceptions"""
     def test_passing_none(self):
         with self.assertRaises(TypeError):
@@ -35,6 +50,11 @@ class TestMaxInteger(unittest.TestCase):
         string_in_list = [2345, 2, "L0Lz", 9]
         with self.assertRaises(TypeError):
             max_integer(string_in_list)
+
+    def test_passing_list(self):
+        list_in_list = [2345, 2, "L0Lz", 9]
+        with self.assertRaises(TypeError):
+            max_integer(list_in_list)
 
 if __name__ == "__main__":
     unittest.main()
