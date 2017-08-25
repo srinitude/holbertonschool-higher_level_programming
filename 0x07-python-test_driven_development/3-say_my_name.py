@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Say my name module"""
 
+
 def say_my_name(first_name, last_name=""):
     """Say my name function"""
     if type(first_name) is not str:

@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """Add integer module"""
+
+
 def add_integer(a, b):
     """Adds integers"""
     if type(a) is not int and type(a) is not float:

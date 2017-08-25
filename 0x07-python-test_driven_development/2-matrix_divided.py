@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Matrix Divided Module"""
 
+
 def check_for_ints_and_floats(matrix):
     """Bad input"""
     bad_input = "matrix must be a matrix (list of lists) of integers/floats"
