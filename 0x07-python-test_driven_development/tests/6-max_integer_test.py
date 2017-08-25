@@ -52,7 +52,7 @@ class TestMaxInteger(unittest.TestCase):
             max_integer(string_in_list)
 
     def test_passing_list(self):
-        list_in_list = [2345, 2, "L0Lz", 9]
+        list_in_list = [2345, 2, [], 9]
         with self.assertRaises(TypeError):
             max_integer(list_in_list)
 
