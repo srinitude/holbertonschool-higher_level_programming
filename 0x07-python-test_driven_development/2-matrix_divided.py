@@ -44,10 +44,13 @@ def number_of_lists(matrix):
 
 def matrix_divided(matrix, div):
     """Matrix divided"""
-    check_for_ints_and_floats(matrix)
+    bad_input = "matrix must be a matrix (list of lists) of integers/floats"
+    if matrix is None:
+        raise TypeError(bad_input)
     count = number_of_lists(matrix)
     if count == 0:
         return []
+    check_for_ints_and_floats(matrix)
     make_sure_lists_are_same_length(matrix)
     check_for_div_type(div)
     check_for_zero_division(div)
