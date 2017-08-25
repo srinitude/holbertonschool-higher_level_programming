@@ -22,10 +22,19 @@ class TestMaxInteger(unittest.TestCase):
         some_elements = [3425, 457458, 1, 3249056, -2346, 0]
         self.assertEqual(max_integer(some_elements), 3249056)
 
+    def test_floats(self):
+        list_with_floats = [23.2354, 635.34, 234658, 99, -102346.052]
+        self.assertEqual(max_integer(list_with_floats), 234658)
+
     """Catching exceptions"""
     def test_passing_none(self):
         with self.assertRaises(TypeError):
             max_integer(None)
+
+    def test_passing_string(self):
+        string_in_list = [2345, 2, "L0Lz", 9]
+        with self.assertRaises(TypeError):
+            max_integer(string_in_list)
 
 if __name__ == "__main__":
     unittest.main()
