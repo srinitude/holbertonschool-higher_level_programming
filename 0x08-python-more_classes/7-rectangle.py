@@ -6,7 +6,14 @@ Here's an implementation of a Rectangle
 
 class Rectangle:
     """
-    There are much more to Rectangles than meets the eye
+    Args:
+        width (int): The width of the Rectangle
+        height (int): The height of the Rectangle
+
+    Class variables:
+        number_of_instances (int):
+            The number of Rectangles that have been instantiated
+        print_symbol (any): The object(s) to be printed
     """
     number_of_instances = 0
     print_symbol = "#"

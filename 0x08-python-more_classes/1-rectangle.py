@@ -6,7 +6,9 @@ Here's an implementation of a Rectangle
 
 class Rectangle:
     """
-    There are much more to Rectangles than meets the eye
+    Args:
+        width (int): The width of the Rectangle
+        height (int): The height of the Rectangle
     """
     def __init__(self, width=0, height=0):
         """
