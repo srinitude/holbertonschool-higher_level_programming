@@ -21,6 +21,12 @@ class Rectangle:
         self.width = width
         self.height = height
 
+    def __del__(self):
+        """
+        Deinitialization of a Rectangle after it gets deleted
+        """
+        print("Bye rectangle...")
+
     def __str__(self):
         """
         The user-friendly string representation of a Rectangle
@@ -42,12 +48,6 @@ class Rectangle:
         width = self.__width
         height = self.__height
         return "Rectangle({:d}, {:d})".format(width, height)
-
-    def __del__(self):
-        """
-        Deinitialization of a Rectangle after it gets deleted
-        """
-        print("Bye rectangle...")
 
     @property
     def width(self):
