@@ -8,8 +8,6 @@ class Rectangle:
     """
     There are much more to Rectangles than meets the eye
     """
-    pass
-
     def __init__(self, width=0, height=0):
         """
         Initialization of a Rectangle after it gets instantiated
