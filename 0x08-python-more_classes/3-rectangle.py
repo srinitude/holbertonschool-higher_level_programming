@@ -25,6 +25,8 @@ class Rectangle:
         """
         The string representation of a Rectangle
         """
+        if self.perimeter() == 0:
+            return ""
         rec = ""
         for i in range(1, self.__height + 1):
             for j in range(1, self.__width + 1):
