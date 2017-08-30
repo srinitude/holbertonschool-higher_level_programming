@@ -4,3 +4,5 @@ class LockedClass:
         if name != "first_name":
             e = "'LockedClass' object has no attribute '{}'".format(name)
             raise AttributeError(e)
+        else:
+            setattr(self, name, value)
