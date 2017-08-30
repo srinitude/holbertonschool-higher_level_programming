@@ -4,4 +4,3 @@ class LockedClass:
         if name != "first_name":
             e = "'LockedClass' object has no attribute '{}'".format(name)
             raise AttributeError(e)
-        
