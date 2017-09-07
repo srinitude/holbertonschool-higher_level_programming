@@ -1,0 +1,44 @@
+0x0A-python-inheritance/1-my_list.txt module
+====================
+
+Importing the class from the module:
+	  >>> MyList = __import__("1-my_list").MyList
+
+Checking given test case
+	 >>> my_list = MyList()
+
+	 >>> my_list.append(1)
+
+	 >>> my_list.append(4)
+
+	 >>> my_list.append(2)
+
+	 >>> my_list.append(3)
+
+	 >>> my_list.append(5)
+
+	 >>> print(my_list)
+	 [1, 4, 2, 3, 5]
+
+	 >>> my_list.print_sorted()
+	 [1, 2, 3, 4, 5]
+
+	 >>> print(my_list)
+	 [1, 4, 2, 3, 5]
+
+Checking negative values
+	 >>> obj2 = MyList()
+
+	 >>> obj2.append(-1)
+
+	 >>> obj2.append(0)
+
+	 >>> obj2.append(-233)
+
+	 >>> obj2.append(-9)
+
+	 >>> print(obj2)
+	 [-1, 0, -233, -9]
+
+	 >>> obj2.print_sorted()
+	 [-233, -9, -1, 0]
