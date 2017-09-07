@@ -16,3 +16,8 @@ def save_to_json_file(my_obj, filename):
         my_obj (object): The object to serialize
         filename (str): The filename to add JSON to
     """
+    if type(filename) is not str:
+        raise TypeError("filename must be a string")
+    obj_str = JSONEncoder().encode(my_obj)
+    with open(filename, "w", encoding="utf-8") as text_file:
+        text_file.write(obj_str)
