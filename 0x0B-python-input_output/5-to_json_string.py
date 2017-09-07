@@ -16,3 +16,4 @@ def to_json_string(my_obj):
     """
     if my_obj:
         return JSONEncoder().encode(my_obj)
+    raise TypeError("Missing the object as an argument")
