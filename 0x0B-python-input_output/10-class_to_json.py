@@ -5,8 +5,5 @@ of an object
 """
 
 
-from json import JSONEncoder
-
-
 def class_to_json(obj):
-    return JSONEncoder().encode(obj.__dict__)
+    return obj.__dict__
