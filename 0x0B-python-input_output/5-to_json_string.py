@@ -14,4 +14,5 @@ def to_json_string(my_obj):
     Args:
        my_obj (object): A Python object
     """
-    return JSONEncoder().encode(my_obj)
+    if my_obj:
+        return JSONEncoder().encode(my_obj)
