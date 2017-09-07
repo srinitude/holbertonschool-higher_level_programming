@@ -2,6 +2,8 @@
 """
 Empty base geometry class
 """
+
+
 class BaseGeometry:
     """
     Empty class

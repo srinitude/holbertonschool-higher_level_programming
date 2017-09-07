@@ -2,6 +2,8 @@
 """
 Lookup function module
 """
+
+
 def lookup(obj):
     """
     Look up the attributes of an object

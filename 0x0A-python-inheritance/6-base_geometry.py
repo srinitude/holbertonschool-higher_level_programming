@@ -2,6 +2,8 @@
 """
 BaseGeometry Module
 """
+
+
 class BaseGeometry:
     """
     A class with very basic geometry functionality

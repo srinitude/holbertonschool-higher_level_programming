@@ -2,6 +2,8 @@
 """
 New list subclass MyList
 """
+
+
 class MyList(list):
     """
     Nothing much more to MyList

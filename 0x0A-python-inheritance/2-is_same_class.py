@@ -2,6 +2,8 @@
 """
 Is same class?
 """
+
+
 def is_same_class(obj, a_class):
     """
     Checks to see if the obj is of the same class

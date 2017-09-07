@@ -2,6 +2,8 @@
 """
 Inherits from
 """
+
+
 def inherits_from(obj, a_class):
     """
     Determines if the obj is a descendant, not of the same type
