@@ -12,6 +12,8 @@ def number_of_lines(filename=""):
     Args:
         filename (str): The name of the file
     """
+    if type(filename) is not str:
+        raise TypeError("filename must be a string")
     num_lines = 0
     with open(filename, encoding="utf-8") as text_file:
         for line in text_file:

@@ -13,8 +13,10 @@ def read_lines(filename="", nb_lines=0):
         filename (str): The name of the file
         nb_lines (int): The number of lines to print
     """
+    if type(filename) is not str:
+        raise TypeError("filename needs to be a string")
     if type(nb_lines) is not int:
-        raise TypeError("Number of lines needs to be an integer")
+        raise TypeError("nb_lines needs to be an integer")
     lines = []
     with open(filename, encoding="utf-8") as text_file:
         lines = text_file.readlines()
