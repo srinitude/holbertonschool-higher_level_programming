@@ -5,7 +5,7 @@ files.
 """
 
 
-from json import JSONEncoder
+import json
 
 
 def save_to_json_file(my_obj, filename):
@@ -18,6 +18,5 @@ def save_to_json_file(my_obj, filename):
     """
     if type(filename) is not str:
         raise TypeError("filename must be a string")
-    obj_str = JSONEncoder().encode(my_obj)
     with open(filename, "w", encoding="utf-8") as text_file:
-        text_file.write(obj_str)
+        json.dump(my_obj, text_file)
