@@ -30,6 +30,8 @@ class Student:
         """
         if not attrs:
             return self.__dict__
+        if type(attrs) is not list:
+            return self.__dict__
         for attr in attrs:
             if type(attr) is not str:
                 return self.__dict__
