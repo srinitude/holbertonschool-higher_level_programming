@@ -28,8 +28,6 @@ class Student:
         Args:
             attrs (list): List of attributes to retrieve
         """
-        if not attrs:
-            return self.__dict__
         if type(attrs) is not list:
             return self.__dict__
         for attr in attrs:
