@@ -39,6 +39,4 @@ class Student:
         for attr in attrs:
             if attr in self.__dict__:
                 attr_dict[attr] = self.__dict__[attr]
-            else:
-                return self.__dict__
         return attr_dict
