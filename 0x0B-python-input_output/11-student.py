@@ -17,20 +17,12 @@ class Student:
             last_name (str): The Student's last name
             age (int): The Student's age
         """
-        if type(first_name) is not str:
-            raise TypeError("first_name needs to be a string")
-        if type(last_name) is not str:
-            raise TypeError("last_name needs to be a string")
-        if type(age) is not int:
-            raise TypeError("age needs to be an integer")
-        if age <= 0:
-            raise ValueError("Students need to have a positive int as age")
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
 
     def to_json(self):
         """
-        The dictionary representation of a student
+        The dictionary representation of a Student
         """
         return self.__dict__
