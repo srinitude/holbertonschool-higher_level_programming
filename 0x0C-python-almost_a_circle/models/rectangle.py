@@ -21,7 +21,7 @@ class Rectangle(Base):
         """
         The initialization of the Rectangle
         """
-        super.__init__(id)
+        super().__init__(id)
         self.width = width
         self.height = height
         self.x = x
@@ -96,5 +96,22 @@ class Rectangle(Base):
         if type(value) is not int:
             raise TypeError("y must be an integer")
         if value < 0:
-            raise ValueError("width must be >=0")
+            raise ValueError("y must be >=0")
         self.__y = value
+
+    def area(self):
+        """
+        Returns the area of the Rectangle
+        """
+        return self.__width * self.__height
+
+    def display(self):
+        """
+        Prints the Rectangle to stdout
+        """
+        rect = ""
+        for i in range(self.__height):
+            for j in range(self.__width):
+                rect += "#"
+            rect += "\n"
+        print(rect[:-1])
