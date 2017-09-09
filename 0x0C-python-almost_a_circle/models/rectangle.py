@@ -117,7 +117,11 @@ class Rectangle(Base):
         Prints the Rectangle to stdout
         """
         rect = ""
+        for i in range(self.__y):
+            rect += "\n"
         for i in range(self.__height):
+            row_offset = " " * self.__x
+            rect += row_offset
             for j in range(self.__width):
                 rect += "#"
             rect += "\n"
