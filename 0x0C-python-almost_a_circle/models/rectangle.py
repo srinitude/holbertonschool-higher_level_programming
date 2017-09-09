@@ -27,6 +27,13 @@ class Rectangle(Base):
         self.x = x
         self.y = y
 
+    def __str__(self):
+        """
+        The pretty representation of a Rectangle
+        """
+        rep = "[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}"
+        return rep.format(self.id, self.x, self.y, self.width, self.height)
+
     @property
     def width(self):
         """
