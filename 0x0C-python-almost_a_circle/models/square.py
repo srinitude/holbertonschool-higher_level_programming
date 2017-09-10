@@ -45,3 +45,31 @@ class Square(Rectangle):
             raise ValueError("width must be > 0")
         self.width = value
         self.height = value
+
+    def update(self, *args, **kwargs):
+        """
+        Update the values of the Square attributes
+        """
+        args_props = {
+            "id": 0,
+            "_Rectangle__width": 1,
+            "_Rectangle__height": 1,
+            "_Rectangle__x": 2,
+            "_Rectangle__y": 3
+        }
+        length = len(args)
+        for i in range(length):
+            for key, val in args_props.items():
+                if i == val:
+                    self.__dict__[key] = args[i]
+        kargs_props = {
+            "id": "id",
+            "_Rectangle__width": "size",
+            "_Rectangle__height": "size",
+            "_Rectangle__x": "x",
+            "_Rectangle__y": "y"
+        }
+        for kw_key, kw_val in kwargs.items():
+            for key, val in kargs_props.items():
+                if kw_key == val:
+                    self.__dict__[key] = kw_val
