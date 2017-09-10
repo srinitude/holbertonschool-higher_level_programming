@@ -127,11 +127,11 @@ class Rectangle(Base):
             rect += "\n"
         print(rect[:-1])
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """
         Update the values of the Rectangle attributes
         """
-        props = {
+        args_props = {
             "id": 0,
             "_Rectangle__width": 1,
             "_Rectangle__height": 2,
@@ -140,6 +140,17 @@ class Rectangle(Base):
         }
         length = len(args)
         for i in range(length):
-            for key, val in props.items():
+            for key, val in args_props.items():
                 if i == val:
                     self.__dict__[key] = args[i]
+        kargs_props = {
+            "id": "id",
+            "width": "_Rectangle__width",
+            "height": "_Rectangle__height",
+            "x": "_Rectangle__x",
+            "y": "_Rectangle__y"
+        }
+        for kw_key, kw_val in kwargs.items():
+            for key, val in kargs_props.items():
+                if kw_key == key:
+                    self.__dict__[val] = kwargs[kw_key]
