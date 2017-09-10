@@ -76,15 +76,13 @@ class Base:
     def load_from_file(cls):
         try:
             with open("{}.json".format(cls.__name__)) as json_file:
-                list_dicts = Base.from_json_string(json_file.read())
+                ld = Base.from_json_string(json_file.read())
         except FileNotFoundError:
             return []
         if cls.__name__ == "Rectangle":
             from models.rectangle import Rectangle
-            rect_transform = lambda d: Rectangle.create(**d)
-            instances = list(map(rect_transform, list_dicts))
+            instances = list(map((lambda d: Rectangle.create(**d)), ld))
         elif cls.__name__ == "Square":
             from models.square import Square
-            square_transform = lambda d: Square.create(**d)
-            instances = list(map(square_transform, list_dicts))
+            instances = list(map((lambda d: Square.create(**d)), ld))
         return instances
