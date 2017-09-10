@@ -4,6 +4,9 @@ This is the module for the Base class
 """
 
 
+import json
+
+
 class Base:
     """
     The Base class consists of basic functionality
@@ -26,3 +29,12 @@ class Base:
         else:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
+
+    @staticmethod
+    def to_json_string(list_dictionaries):
+        """
+        JSON representation of a list of dictionaries
+        """
+        if not list_dictionaries or len(list_dictionaries) == 0:
+            return "[]"
+        return json.dumps(list_dictionaries)
