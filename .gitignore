@@ -26,3 +26,4 @@ add_item.json
 student.json
 Rectangle.json
 Square.json
+*.pyc

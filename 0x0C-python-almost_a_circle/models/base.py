@@ -57,3 +57,17 @@ class Base:
         json_str = Base.to_json_string(list_dicts)
         with open("{}.json".format(cls.__name__), "w") as json_file:
             json_file.write(json_str)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """
+        Factory method to create a Base-subclassed object
+        """
+        if cls.__name__ == "Rectangle":
+            from models.rectangle import Rectangle
+            obj = Rectangle(1, 1)
+        elif cls.__name__ == "Square":
+            from models.square import Square
+            obj = Square(1)
+        obj.update(**dictionary)
+        return obj
