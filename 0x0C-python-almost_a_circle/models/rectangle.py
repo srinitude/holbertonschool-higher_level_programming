@@ -154,3 +154,13 @@ class Rectangle(Base):
             for key, val in kargs_props.items():
                 if kw_key == key:
                     self.__dict__[val] = kwargs[kw_key]
+
+    def to_dictionary(self):
+        """
+        Dictionary reppresentation of a Rectangle
+        """
+        new_dict = { }
+        for key, val in self.__dict__.items():
+            interface_key = key.split("__")[-1]
+            new_dict[interface_key] = val
+        return new_dict
