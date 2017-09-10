@@ -81,8 +81,10 @@ class Base:
             return []
         if cls.__name__ == "Rectangle":
             from models.rectangle import Rectangle
-            instances = list(map((lambda d: Rectangle.create(**d)), list_dicts))
+            rect_transform = lambda d: Rectangle.create(**d)
+            instances = list(map(rect_transform, list_dicts))
         elif cls.__name__ == "Square":
             from models.square import Square
-            instances = list(map((lambda d: Square.create(**d)), list_dicts))
+            square_transform = lambda d: Square.create(**d)
+            instances = list(map(square_transform, list_dicts))
         return instances
