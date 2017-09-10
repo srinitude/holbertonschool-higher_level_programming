@@ -126,3 +126,20 @@ class Rectangle(Base):
                 rect += "#"
             rect += "\n"
         print(rect[:-1])
+
+    def update(self, *args):
+        """
+        Update the values of the Rectangle attributes
+        """
+        props = {
+            "id": 0,
+            "_Rectangle__width": 1,
+            "_Rectangle__height": 2,
+            "_Rectangle__x": 3,
+            "_Rectangle__y": 4
+        }
+        length = len(args)
+        for i in range(length):
+            for key, val in props.items():
+                if i == val:
+                    self.__dict__[key] = args[i]
