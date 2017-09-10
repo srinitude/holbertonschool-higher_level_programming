@@ -159,7 +159,7 @@ class Rectangle(Base):
         """
         Dictionary reppresentation of a Rectangle
         """
-        new_dict = { }
+        new_dict = {}
         for key, val in self.__dict__.items():
             interface_key = key.split("__")[-1]
             new_dict[interface_key] = val

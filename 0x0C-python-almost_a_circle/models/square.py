@@ -73,3 +73,18 @@ class Square(Rectangle):
             for key, val in kargs_props.items():
                 if kw_key == val:
                     self.__dict__[key] = kw_val
+
+    def to_dictionary(self):
+        """
+        Dictionary representation of a square
+        """
+        new_dict = {}
+        for key, val in self.__dict__.items():
+            interface_key = key.split("__")[-1]
+            if interface_key == "width":
+                new_dict["size"] = val
+            elif interface_key == "height":
+                continue
+            else:
+                new_dict[interface_key] = val
+        return new_dict
