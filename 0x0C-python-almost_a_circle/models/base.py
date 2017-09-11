@@ -74,6 +74,9 @@ class Base:
 
     @classmethod
     def load_from_file(cls):
+        """
+        Loads Base subclass instances from a file
+        """
         try:
             with open("{}.json".format(cls.__name__)) as json_file:
                 ld = Base.from_json_string(json_file.read())
