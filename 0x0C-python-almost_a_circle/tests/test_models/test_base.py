@@ -43,11 +43,14 @@ class TestBase(unittest.TestCase):
         lff_doc = Base.load_from_file.__doc__
         self.assertTrue(len(lff_doc) > 1)
 
-    def setUp(self):
-        self.base = Base()
+    """Initialization tests"""
+    def test_empty_id(self):
+        base = Base()
+        self.assertEqual(base.id, 1)
 
-    def tearDown(self):
-        del self.base
+    def test_pos_int_id(self):
+        base = Base(89)
+        self.assertEqual(base.id, 89)
 
 if __name__ == "__main__":
     unittest.main()
