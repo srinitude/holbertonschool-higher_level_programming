@@ -27,8 +27,8 @@ class Base:
         if id:
             self.id = id
         else:
-            Base.__nb_objects += 1
-            self.id = Base.__nb_objects
+            type(self).__nb_objects += 1
+            self.id = type(self).__nb_objects
 
     @staticmethod
     def to_json_string(list_dictionaries):
@@ -63,12 +63,7 @@ class Base:
         """
         Factory method to create a Base-subclassed object
         """
-        if cls.__name__ == "Rectangle":
-            from models.rectangle import Rectangle
-            obj = Rectangle(1, 1)
-        elif cls.__name__ == "Square":
-            from models.square import Square
-            obj = Square(1)
+        obj = cls(1, 1)
         obj.update(**dictionary)
         return obj
 

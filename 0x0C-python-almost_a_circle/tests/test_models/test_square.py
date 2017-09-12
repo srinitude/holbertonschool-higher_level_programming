@@ -39,12 +39,6 @@ class TestSquare(unittest.TestCase):
         td_doc = Square.to_dictionary.__doc__
         self.assertTrue(len(td_doc) > 1)
 
-    def setUp(self):
-        self.sq = Square(1)
-
-    def tearDown(self):
-        del self.sq
-
     """Initialization tests with valid arguments"""
     def test_all_valid_params(self):
         self.sq = Square(10, 3, 4, 12)

@@ -59,14 +59,18 @@ class TestRectangle(unittest.TestCase):
         td_doc = Rectangle.to_dictionary.__doc__
         self.assertTrue(len(td_doc) > 1)
 
-    def setUp(self):
-        self.rect = Rectangle(1, 1)
-
-    def tearDown(self):
-        del self.rect
+    def test_rect_id(self):
+        Rectangle._Base__nb_object = 0
+        r1 = Rectangle(10, 2)
+        r2 = Rectangle(2, 10)
+        r3 = Rectangle(10, 2, 0, 0, 12)
+        self.assertEqual(r1.id, 1)
+        self.assertEqual(r2.id, 2)
+        self.assertEqual(r3.id, 12)
 
     """Initialization tests with valid arguments"""
     def test_all_valid_params(self):
+        Rectangle._Base__nb_object = 0
         self.rect = Rectangle(10, 2, 3, 4, 12)
         self.assertEqual(self.rect.id, 12)
         self.assertEqual(self.rect.x, 3)
@@ -76,25 +80,39 @@ class TestRectangle(unittest.TestCase):
 
     """Initialization tests with invalid arguments"""
     def test_bad_height(self):
-        with self.assertRaises(TypeError) as cm:
+        Rectangle._Base__nb_object = 0
+        with self.assertRaises(TypeError, msg="height must be an integer"):
             self.rect = Rectangle(10, "2")
 
     def test_bad_width(self):
-        with self.assertRaises(ValueError) as cm:
+        Rectangle._Base__nb_object = 0
+        with self.assertRaises(ValueError, msg="width must be > 0"):
             self.rect = Rectangle(-10, 2)
 
     def test_bad_x(self):
-        with self.assertRaises(TypeError) as cm:
+        Rectangle._Base__nb_object = 0
+        with self.assertRaises(TypeError, msg="x must be an integer"):
             self.rect = Rectangle(10, 2, {})
 
     def test_bad_y(self):
-        with self.assertRaises(ValueError) as cm:
+        Rectangle._Base__nb_object = 0
+        with self.assertRaises(ValueError, msg="y must be >= 0"):
             self.rect = Rectangle(10, 2, 3, -1)
 
     """Area"""
     def test_area(self):
-        self.rect = Rectangle(8, 7, 0, 0, 12)
-        self.assertEqual(self.rect.area(), 56)
+        Rectangle._Base__nb_object = 0
+        r1 = Rectangle(3, 2)
+        r2 = Rectangle(2, 10)
+        r3 = Rectangle(8, 7, 0, 0, 12)
+        self.assertEqual(r1.area(), 6)
+        self.assertEqual(r2.area(), 20)
+        self.assertEqual(r3.area(), 56)
+
+    """Display"""
+    def test_display_at_origin(self):
+        self.rect = Rectangle(4, 6)
 
 if __name__ == "__main__":
     unittest.main()
+
