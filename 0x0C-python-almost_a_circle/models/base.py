@@ -82,10 +82,5 @@ class Base:
                 ld = Base.from_json_string(json_file.read())
         except FileNotFoundError:
             return []
-        if cls.__name__ == "Rectangle":
-            from models.rectangle import Rectangle
-            instances = list(map((lambda d: Rectangle.create(**d)), ld))
-        elif cls.__name__ == "Square":
-            from models.square import Square
-            instances = list(map((lambda d: Square.create(**d)), ld))
+        instances = list(map((lambda d: cls.create(**d)), ld))
         return instances
