@@ -9,7 +9,7 @@ from models import rectangle
 from models.rectangle import Rectangle
 
 
-class TestBase(unittest.TestCase):
+class TestRectangle(unittest.TestCase):
     """Presence of docstrings"""
     def test_presence_of_module_docstring(self):
         module_doc = rectangle.__doc__
@@ -58,6 +58,23 @@ class TestBase(unittest.TestCase):
     def test_presence_of_to_dict_doc(self):
         td_doc = Rectangle.to_dictionary.__doc__
         self.assertTrue(len(td_doc) > 1)
+
+    """Initialization tests"""
+    def test_valid_height_width(self):
+        rect = Rectangle(10, 2)
+        self.assertEqual(rect.id, 2)
+        self.assertEqual(rect.x, 0)
+        self.assertEqual(rect.y, 0)
+        self.assertEqual(rect.width, 10)
+        self.assertEqual(rect.height, 2)
+
+    def test_all_valid_params(self):
+        rect = Rectangle(10, 2, 3, 4, 12)
+        self.assertEqual(rect.id, 12)
+        self.assertEqual(rect.x, 3)
+        self.assertEqual(rect.y, 4)
+        self.assertEqual(rect.width, 10)
+        self.assertEqual(rect.height, 2)
 
 if __name__ == "__main__":
     unittest.main()

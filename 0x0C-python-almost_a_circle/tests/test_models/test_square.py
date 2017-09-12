@@ -9,7 +9,7 @@ from models import square
 from models.square import Square
 
 
-class TestBase(unittest.TestCase):
+class TestSquare(unittest.TestCase):
     """Presence of docstrings"""
     def test_presence_of_module_docstring(self):
         module_doc = square.__doc__
