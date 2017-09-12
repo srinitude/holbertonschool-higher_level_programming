@@ -46,41 +46,34 @@ class Square(Rectangle):
         """
         Update the values of the Square attributes
         """
-        args_props = {
-            "id": 0,
-            "_Rectangle__width": 1,
-            "_Rectangle__height": 1,
-            "_Rectangle__x": 2,
-            "_Rectangle__y": 3
-        }
         length = len(args)
-        for i in range(length):
-            for key, val in args_props.items():
-                if i == val:
-                    self.__dict__[key] = args[i]
-        kargs_props = {
-            "id": "id",
-            "_Rectangle__width": "size",
-            "_Rectangle__height": "size",
-            "_Rectangle__x": "x",
-            "_Rectangle__y": "y"
-        }
-        for kw_key, kw_val in kwargs.items():
-            for key, val in kargs_props.items():
-                if kw_key == val:
-                    self.__dict__[key] = kw_val
+        if length:
+            for i, arg in enumerate(args):
+                if i == 0:
+                    self.id = arg
+                if i == 1:
+                    self.size = arg
+                if i == 2:
+                    self.x = arg
+                if i == 3:
+                    self.y = arg
+        else:
+            if "id" in kwargs:
+                self.id = kwargs.get("id")
+            if "size" in kwargs:
+                self.size = kwargs.get("size")
+            if "x" in kwargs:
+                self.x = kwargs.get("x")
+            if "y" in kwargs:
+                self.y = kwargs.get("y")
 
     def to_dictionary(self):
         """
         Dictionary representation of a square
         """
         new_dict = {}
-        for key, val in self.__dict__.items():
-            interface_key = key.split("__")[-1]
-            if interface_key == "width":
-                new_dict["size"] = val
-            elif interface_key == "height":
-                continue
-            else:
-                new_dict[interface_key] = val
+        new_dict["id"] = self.id
+        new_dict["size"] = self.size
+        new_dict["x"] = self.x
+        new_dict["y"] = self.y
         return new_dict

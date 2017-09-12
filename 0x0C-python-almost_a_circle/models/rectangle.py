@@ -131,36 +131,39 @@ class Rectangle(Base):
         """
         Update the values of the Rectangle attributes
         """
-        args_props = {
-            "id": 0,
-            "_Rectangle__width": 1,
-            "_Rectangle__height": 2,
-            "_Rectangle__x": 3,
-            "_Rectangle__y": 4
-        }
         length = len(args)
-        for i in range(length):
-            for key, val in args_props.items():
-                if i == val:
-                    self.__dict__[key] = args[i]
-        kargs_props = {
-            "id": "id",
-            "width": "_Rectangle__width",
-            "height": "_Rectangle__height",
-            "x": "_Rectangle__x",
-            "y": "_Rectangle__y"
-        }
-        for kw_key, kw_val in kwargs.items():
-            for key, val in kargs_props.items():
-                if kw_key == key:
-                    self.__dict__[val] = kwargs[kw_key]
+        if length:
+            for i, arg in enumerate(args):
+                if i == 0:
+                    self.id = arg
+                if i == 1:
+                    self.width = arg
+                if i == 2:
+                    self.height = arg
+                if i == 3:
+                    self.x = arg
+                if i == 4:
+                    self.y = arg
+        else:
+            if "id" in kwargs:
+                self.id = kwargs.get("id")
+            if "width" in kwargs:
+                self.width = kwargs.get("width")
+            if "height" in kwargs:
+                self.height = kwargs.get("height")
+            if "x" in kwargs:
+                self.x = kwargs.get("x")
+            if "y" in kwargs:
+                self.y = kwargs.get("y")
 
     def to_dictionary(self):
         """
         Dictionary reppresentation of a Rectangle
         """
         new_dict = {}
-        for key, val in self.__dict__.items():
-            interface_key = key.split("__")[-1]
-            new_dict[interface_key] = val
+        new_dict["id"] = self.id
+        new_dict["width"] = self.width
+        new_dict["height"] = self.height
+        new_dict["x"] = self.x
+        new_dict["y"] = self.y
         return new_dict
