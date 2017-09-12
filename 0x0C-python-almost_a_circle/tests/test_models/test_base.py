@@ -45,7 +45,7 @@ class TestBase(unittest.TestCase):
 
     """Initialization tests"""
     def test_ids(self):
-        Base.__nb_objects = 0
+        Base._Base__nb_objects = 0
         self.b1 = Base()
         self.b2 = Base()
         self.b3 = Base()

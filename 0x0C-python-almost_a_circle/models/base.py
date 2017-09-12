@@ -53,7 +53,10 @@ class Base:
         """
         Save list objects to a file
         """
-        list_dicts = list(map((lambda b: b.to_dictionary()), list_objs))
+        if not list_objs:
+            list_dicts = []
+        else:
+            list_dicts = list(map((lambda b: b.to_dictionary()), list_objs))
         json_str = Base.to_json_string(list_dicts)
         with open("{}.json".format(cls.__name__), "w") as json_file:
             json_file.write(json_str)
