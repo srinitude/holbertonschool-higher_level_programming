@@ -47,12 +47,10 @@ class TestBase(unittest.TestCase):
     def test_empty_id(self):
         self.base = Base()
         self.assertEqual(self.base.id, 1)
-        del self.base
 
     def test_pos_int_id(self):
         self.base = Base(89)
         self.assertEqual(self.base.id, 89)
-        del self.base
 
 if __name__ == "__main__":
     unittest.main()

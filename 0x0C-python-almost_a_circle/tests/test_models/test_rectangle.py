@@ -59,6 +59,12 @@ class TestRectangle(unittest.TestCase):
         td_doc = Rectangle.to_dictionary.__doc__
         self.assertTrue(len(td_doc) > 1)
 
+    def setUp(self):
+        self.rect = Rectangle(1, 1)
+
+    def tearDown(self):
+        del self.rect
+
     """Initialization tests with valid arguments"""
     def test_all_valid_params(self):
         self.rect = Rectangle(10, 2, 3, 4, 12)
@@ -67,7 +73,6 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(self.rect.y, 4)
         self.assertEqual(self.rect.width, 10)
         self.assertEqual(self.rect.height, 2)
-        del self.rect
 
     """Initialization tests with invalid arguments"""
     def test_bad_height(self):
@@ -85,6 +90,11 @@ class TestRectangle(unittest.TestCase):
     def test_bad_y(self):
         with self.assertRaises(ValueError) as cm:
             self.rect = Rectangle(10, 2, 3, -1)
+
+    """Area"""
+    def test_area(self):
+        self.rect = Rectangle(8, 7, 0, 0, 12)
+        self.assertEqual(self.rect.area(), 56)
 
 if __name__ == "__main__":
     unittest.main()

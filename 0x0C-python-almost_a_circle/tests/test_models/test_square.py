@@ -39,5 +39,40 @@ class TestSquare(unittest.TestCase):
         td_doc = Square.to_dictionary.__doc__
         self.assertTrue(len(td_doc) > 1)
 
+    def setUp(self):
+        self.sq = Square(1)
+
+    def tearDown(self):
+        del self.sq
+
+    """Initialization tests with valid arguments"""
+    def test_all_valid_params(self):
+        self.sq = Square(10, 3, 4, 12)
+        self.assertEqual(self.sq.x, 3)
+        self.assertEqual(self.sq.y, 4)
+        self.assertEqual(self.sq.size, 10)
+
+    """Initialization tests with invalid arguments"""
+    def test_bad_size_type(self):
+        with self.assertRaises(TypeError) as cm:
+            self.sq = Square("10")
+
+    def test_bad_size_value(self):
+        with self.assertRaises(ValueError) as cm:
+            self.sq = Square(-10)
+
+    def test_bad_x(self):
+        with self.assertRaises(TypeError) as cm:
+            self.sq = Square(10, {})
+
+    def test_bad_y(self):
+        with self.assertRaises(ValueError) as cm:
+            self.sq = Square(10, 3, -1)
+
+    """Area"""
+    def test_area(self):
+        self.sq = Square(6)
+        self.assertEqual(self.sq.area(), 36)
+
 if __name__ == "__main__":
     unittest.main()
