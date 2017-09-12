@@ -36,7 +36,7 @@ class Base:
         JSON representation of a list of dictionaries
         """
         if not list_dictionaries or len(list_dictionaries) == 0:
-            return "[]"
+            list_dictionaries = []
         return json.dumps(list_dictionaries)
 
     @staticmethod
