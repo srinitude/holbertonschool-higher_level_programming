@@ -27,3 +27,5 @@ student.json
 Rectangle.json
 Square.json
 *.pyc
+Rectangle.csv
+Square.csv
