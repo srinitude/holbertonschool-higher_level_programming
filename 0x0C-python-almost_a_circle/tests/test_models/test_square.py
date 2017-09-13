@@ -5,6 +5,8 @@ Unit tests for Square class
 
 
 import unittest
+import sys
+from io import StringIO
 from models.base import Base
 from models import square
 from models.square import Square
@@ -84,6 +86,28 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(sq1.area(), 36)
         self.assertEqual(sq2.area(), 25)
         self.assertEqual(sq3.area(), 49)
+
+    def test_display_at_origin(self):
+        """Test display at origin"""
+        Base._Base__nb_object = 0
+        r1 = Square(2)
+        my_stdout = StringIO()
+        sys.stdout = my_stdout
+        r1.display()
+        sys.stdout = sys.__stdout__
+        expected = "##\n##\n"
+        self.assertEqual(expected, my_stdout.getvalue())
+
+    def test_display_not_at_origin(self):
+        """Test display not at origin"""
+        Base._Base__nb_object = 0
+        r1 = Square(2, 1, 1, 2)
+        my_stdout = StringIO()
+        sys.stdout = my_stdout
+        r1.display()
+        sys.stdout = sys.__stdout__
+        expected = "\n ##\n ##\n"
+        self.assertEqual(expected, my_stdout.getvalue())
 
 if __name__ == "__main__":
     unittest.main()
