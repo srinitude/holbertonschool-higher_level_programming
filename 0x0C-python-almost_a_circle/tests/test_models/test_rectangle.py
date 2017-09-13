@@ -11,6 +11,7 @@ from models import rectangle
 from models.rectangle import Rectangle
 from io import StringIO
 
+
 class TestRectangle(unittest.TestCase):
     """Rectangle tests"""
     def test_presence_of_module_docstring(self):
