@@ -66,7 +66,10 @@ class Base:
         """
         Factory method to create a Base-subclassed object
         """
-        obj = cls(1, 1)
+        if cls.__name__ == "Rectangle":
+            obj = cls(1, 1)
+        elif cls.__name__ == "Square":
+            obj = cls(1)
         obj.update(**dictionary)
         return obj
 
