@@ -1,4 +1,4 @@
 -- Say my name
 SELECT score, name FROM second_table
-GROUP BY name, score
+WHERE name IS NOT NULL
 ORDER BY score DESC;
