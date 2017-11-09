@@ -20,8 +20,8 @@ class HBTNDBRunner:
                                passwd=args[2],
                                db=args[3])
         cur = conn.cursor()
-        cur.execute("SELECT * FROM states WHERE name = {:s} ORDER BY id ASC"
-                    .format(argv[4]))
+        query = "SELECT * FROM states WHERE name LIKE '{:s}' ORDER BY id ASC"
+        cur.execute(query.format(argv[4]))
         states = cur.fetchall()
         for state in states:
             print(state)
