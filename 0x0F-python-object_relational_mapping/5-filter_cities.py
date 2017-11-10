@@ -20,10 +20,10 @@ class HBTNDBRunner:
                                passwd=args[2],
                                db=args[3])
         cur = conn.cursor()
-        query = "SELECT cities.name FROM cities "
-        query += "JOIN states ON states.id = cities.state_id "
-        query += "WHERE states.name = %s "
-        query += "ORDER BY cities.id ASC"
+        query = """SELECT cities.name FROM cities """
+        query += """JOIN states ON states.id = cities.state_id """
+        query += """WHERE states.name = %s """
+        query += """ORDER BY cities.id ASC"""
         cur.execute(query, (argv[4],))
         states = cur.fetchall()
         states_length = len(states)
