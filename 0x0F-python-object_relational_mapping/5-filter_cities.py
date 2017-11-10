@@ -5,20 +5,6 @@ Filter states from database hbtn_0e_0_usa with certain name
 import MySQLdb
 
 
-class StateStr(str):
-    """
-    Custom string subclass
-    """
-    def contains(self, letter):
-        """
-        Tests to see if letter contains malicious character
-        """
-        for char in self:
-            if char == letter:
-                return True
-        return False
-
-
 class HBTNDBRunner:
     """
     Execute various SQL scripts
@@ -34,14 +20,11 @@ class HBTNDBRunner:
                                passwd=args[2],
                                db=args[3])
         cur = conn.cursor()
-        query = StateStr(args[4])
-        if query.contains(";"):
-            raise Exception("Hey hacker")
         query = "SELECT cities.name FROM cities "
         query += "JOIN states ON states.id = cities.state_id "
-        query += "WHERE states.name = '{:s}' "
+        query += "WHERE states.name = %s "
         query += "ORDER BY cities.id ASC"
-        cur.execute(query.format(argv[4]))
+        cur.execute(query, (argv[4],))
         states = cur.fetchall()
         states_length = len(states)
         for i in range(0, states_length):
