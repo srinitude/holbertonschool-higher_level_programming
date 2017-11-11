@@ -5,6 +5,7 @@ Creating a City object that inherits from Base
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, ForeignKey, Integer, String
 from sqlalchemy.orm import relationship
+from relationship_state import State
 
 Base = declarative_base()
 
@@ -24,3 +25,4 @@ class City(Base):
     state_id = Column(Integer,
                       ForeignKey("states.id"),
                       nullable=False)
+    state = relationship("State", back_populates="cities")
