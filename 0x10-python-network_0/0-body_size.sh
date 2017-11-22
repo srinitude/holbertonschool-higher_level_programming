@@ -1,3 +1,3 @@
 #!/bin/bash
 # Displays size of HTTP reponse's message body
-curl -sI "$1" | awk '/Content-Length/ { print $2 }'
+curl -s -o /dev/null -w "%{size_download}\n" "$1"
