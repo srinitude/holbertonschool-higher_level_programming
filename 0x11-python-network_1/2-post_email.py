@@ -14,4 +14,4 @@ if __name__ == "__main__":
     req = Request(url, data)
     with urlopen(req) as res:
         address = res.read().decode("utf-8")
-        print("Your email is: {}".format(address))
+        print(address)
