@@ -4,6 +4,7 @@ Searches database for users beginning with a certain letter
 """
 if __name__ == "__main__":
     import requests
+    import sys
     from sys import argv
 
     try:
@@ -14,8 +15,12 @@ if __name__ == "__main__":
     query["q"] = letter
     res = requests.post("http://0.0.0.0:5000/search_user",
                         data=query)
-    user_id = res.json().get("id")
-    name = res.json().get("name")
+    try:
+        user_id = res.json().get("id")
+        name = res.json().get("name")
+    except ValueError:
+        print("Not a valid JSON")
+        sys.exit()
     if not user_id or not name:
         print("No result")
     else:
