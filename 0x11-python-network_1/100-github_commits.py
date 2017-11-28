@@ -14,9 +14,11 @@ if __name__ == "__main__":
     commits = res.json()
     count = 0
     for commit in commits:
-        count += 1
         sha = commit.get("commit").get("tree").get("sha")
         name = commit.get("commit").get("committer").get("name")
+        if name == "GitHub":
+            continue
+        count += 1
         print("{}: {}".format(sha, name))
         if count == 10:
             break
