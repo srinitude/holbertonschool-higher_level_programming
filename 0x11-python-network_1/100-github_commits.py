@@ -13,8 +13,7 @@ if __name__ == "__main__":
     url = "https://api.github.com/repos/{}/{}/commits".format(repo, org)
     user = os.getenv("USERNAME")
     pw = os.getenv("PW")
-    res = requests.get(url,
-                       auth=HTTPBasicAuth(user, pw))
+    res = requests.get(url, auth=HTTPBasicAuth(user, pw))
     commits = res.json()
     count = 0
     for commit in commits:
