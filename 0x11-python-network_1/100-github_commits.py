@@ -7,17 +7,15 @@ if __name__ == "__main__":
     import requests
 
     repo = sys.argv[1]
-    org = sys.argv[2]
-    url = "https://api.github.com/repos/{}/{}/commits".format(repo, org)
+    owner = sys.argv[2]
+    url = "https://api.github.com/repos/{}/{}/commits".format(owner, repo)
     res = requests.get(url)
     commits = res.json()
     count = 0
     for commit in commits:
-        if count < 10:
-            if isinstance(commit, dict):
-                sha = commit.get("sha")
-                name = commit.get("commit").get("author").get("name")
-                print("{}: {}".format(sha, name))
-            count += 1
-        else:
+        sha = commit.get("sha")
+        name = commit.get("commit").get("author").get("name")
+        print("{}: {}".format(sha, name))
+        count += 1
+        if count == 10:
             break
