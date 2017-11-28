@@ -3,13 +3,10 @@
 Interview
 """
 if __name__ == "__main__":
-    import sys
     import requests
     import os
 
-    repo = sys.argv[1]
-    org = sys.argv[2]
-    url = "https://api.github.com/repos/{}/{}/commits".format(repo, org)
+    url = "https://api.github.com/repos/rails/rails/commits"
     res = requests.get(url)
     commits = res.json()
     count = 0
