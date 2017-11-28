@@ -16,8 +16,6 @@ if __name__ == "__main__":
     for commit in commits:
         sha = commit.get("commit").get("tree").get("sha")
         name = commit.get("commit").get("committer").get("name")
-        if name == "GitHub":
-            continue
         count += 1
         print("{}: {}".format(sha, name))
         if count == 10:
