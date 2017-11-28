@@ -14,7 +14,7 @@ if __name__ == "__main__":
     commits = res.json()
     count = 0
     for commit in commits:
-        sha = commit.get("commit").get("tree").get("sha")
+        sha = commit.get("sha")
         name = commit.get("commit").get("committer").get("name")
         count += 1
         print("{}: {}".format(sha, name))
