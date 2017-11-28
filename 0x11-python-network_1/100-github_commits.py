@@ -13,10 +13,11 @@ if __name__ == "__main__":
     res = requests.get(url)
     commits = res.json()
     count = 0
-    for commit in commits:
-        sha = commit.get("sha")
-        name = commit.get("commit").get("committer").get("name")
-        count += 1
-        print("{}: {}".format(sha, name))
-        if count == 10:
-            break
+    if commits:
+        for commit in commits:
+            sha = commit.get("sha")
+            name = commit.get("commit").get("committer").get("name")
+            count += 1
+            print("{}: {}".format(sha, name))
+            if count == 10:
+                break
