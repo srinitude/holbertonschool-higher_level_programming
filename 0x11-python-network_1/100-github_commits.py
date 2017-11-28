@@ -11,13 +11,11 @@ if __name__ == "__main__":
     url = "https://api.github.com/repos/{}/{}/commits".format(repo, org)
     res = requests.get(url)
     commits = res.json()
-    count = 0
-    if commits:
-        for commit in commits:
-            if type(commit) is dict:
-                sha = commit.get("sha")
-                name = commit.get("commit").get("author").get("name")
-                count += 1
-                print("{}: {}".format(sha, name))
-                if count == 10:
-                    break
+    count = 1
+    for commit in commits:
+        sha = commit.get("sha")
+        name = commit.get("commit").get("author").get("name")
+        count += 1
+        print("{}: {}".format(sha, name))
+        if count == 10:
+            break
