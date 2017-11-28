@@ -5,7 +5,6 @@ Interview
 if __name__ == "__main__":
     import sys
     import requests
-    import os
 
     repo = sys.argv[1]
     org = sys.argv[2]
