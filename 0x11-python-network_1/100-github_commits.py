@@ -5,15 +5,12 @@ Interview
 if __name__ == "__main__":
     import sys
     import requests
-    from requests.auth import HTTPBasicAuth
     import os
 
     repo = sys.argv[1]
     org = sys.argv[2]
     url = "https://api.github.com/repos/{}/{}/commits".format(repo, org)
-    user = os.getenv("USERNAME")
-    pw = os.getenv("PW")
-    res = requests.get(url, auth=HTTPBasicAuth(user, pw))
+    res = requests.get(url)
     commits = res.json()
     count = 0
     for commit in commits:
