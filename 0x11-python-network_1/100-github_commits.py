@@ -13,10 +13,11 @@ if __name__ == "__main__":
     commits = res.json()
     count = 0
     for commit in commits:
-        if isinstance(commit, dict):
-            sha = commit.get("sha")
-            name = commit.get("commit").get("author").get("name")
-            print("{}: {}".format(sha, name))
+        if count < 10:
+            if isinstance(commit, dict):
+                sha = commit.get("sha")
+                name = commit.get("commit").get("author").get("name")
+                print("{}: {}".format(sha, name))
             count += 1
-            if count == 10:
-                break
+        else:
+            break
