@@ -1,6 +1,7 @@
 #!/usr/bin/node
-const numOfArgs = process.argv.length - 2;
-if (numOfArgs === 0) {
+let numOfArgs = 0;
+process.argv.forEach((element) => { numOfArgs++ });
+if (numOfArgs === 2) {
   console.log('No argument');
 } else {
   console.log(process.argv[2]);
