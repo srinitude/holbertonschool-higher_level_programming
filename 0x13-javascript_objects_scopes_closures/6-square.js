@@ -17,4 +17,4 @@ class Square extends Rectangle {
   }
 }
 const square = Square;
-module.exports = Square;
+module.exports = square;
