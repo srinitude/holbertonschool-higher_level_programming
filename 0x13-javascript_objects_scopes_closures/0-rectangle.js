@@ -1,5 +1,5 @@
 #!/usr/bin/node
-class Rectangle {
+const Rectangle = class {
 
 }
-exports.Rectangle = Rectangle;
+module.exports = Rectangle;
