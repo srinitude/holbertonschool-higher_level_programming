@@ -11,7 +11,7 @@ class Square extends Rectangle {
     } else {
       let xWidth = c.repeat(this.width);
       for (let h = 0; h < this.height; h++) {
-	console.log(xWidth);
+        console.log(xWidth);
       }
     }
   }
