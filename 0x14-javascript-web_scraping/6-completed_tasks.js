@@ -9,11 +9,12 @@ request.get(url, (err, res, body) => {
   const todos = JSON.parse(body);
   for (let i = 0; i < todos.length; i++) {
     let key = todos[i].userId;
-    if (!(key in completedTasks)) {
-      completedTasks[key] = 0;
-    }
     if (todos[i].completed) {
-      completedTasks[key] += 1;
+      if (!(key in completedTasks)) {
+        completedTasks[key] = 1;
+      } else {
+        completedTasks[key] += 1;
+      }
     }
   }
   console.log(completedTasks);
