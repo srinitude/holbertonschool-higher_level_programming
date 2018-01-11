@@ -17,9 +17,13 @@ function characterPromise (character) {
 request.get(filmUrl, (err, res, body) => {
   if (err) throw err;
   const characters = JSON.parse(body).characters;
+  const promises = [];
   for (let i = 0; i < characters.length; i++) {
-    characterPromise(characters[i]).then((character) => {
+    promises.push(characterPromise(characters[i]));
+  }
+  Promise.all(promises).then((characters) => {
+    characters.forEach((character) => {
       console.log(character);
     });
-  }
+  });
 });
