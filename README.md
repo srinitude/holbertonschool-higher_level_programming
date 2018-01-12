@@ -22,18 +22,6 @@ This repository contains Python projects while learning the language for the fir
 * semistandard styling
 * All programs were run on a Vagrant(ubuntu/trusty64) (Virtualbox) environment
 
-## Installation
-In your terminal, git clone the directory with the following command:
-```
-git clone https://github.com/feliciahsieh/[Github project directory]
-```
-
-Compile the files using:
-
-```sh
-./[pythonFile.py]
-```
-
 ## Projects
 1. [0x00-python-hello_world](./0x00-python-hello_world)
 2. [0x01-python-if_else_loops_functions](./0x01-python-if_else_loops_functions)
@@ -59,10 +47,8 @@ Compile the files using:
 
 ## Usage
 ```sh
-./[executable file]
+./[file] [optional args]
 ```
-
-Run a Python program at your shell prompt normally as directed.
 
 ## Credits
 Work is owned and maintained by Kiren Srinivasan ([@srinitude](https://twitter.com/srinitude)). A few projects were group projects, and joint ownership will be reflected in each respective project README.md file.
