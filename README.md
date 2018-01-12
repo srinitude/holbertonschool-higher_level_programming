@@ -1,7 +1,5 @@
 <img src="LaptopProgramming.jpg" width="300">
 
-# Higher-level programming - Python OOP, SQL, Flask, JavaScript Asyncronous Programming
-
 ## Table of Contents
 * [About](#about)
 * [Requirements](#requirements)
