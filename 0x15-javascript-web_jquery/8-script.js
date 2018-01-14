@@ -1,4 +1,4 @@
-$(document).ready((event) => {
+$(document).ready(() => {
   $.ajax({
     url: 'https://swapi.co/api/films/?format=json',
     type: 'GET',
